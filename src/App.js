@@ -7,8 +7,7 @@ import Login from './Components/Login/Login';
 import UploadPd from './Components/UploadPd/UploadPd';
 import PrivateAuth from './Components/PrivateAuth/PrivateAuth';
 import SignUp from './Components/SignUp/SignUp';
-import SocialLogin from './Components/SocialLogin/SocialLogin';
-import Loading from './Components/Loading/Loading';
+import NotFound from './Components/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
@@ -20,13 +19,13 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/uploadPd" element={
-        <PrivateAuth>
-        <UploadPd></UploadPd>
-        </PrivateAuth>
+          <PrivateAuth>
+            <UploadPd></UploadPd>
+          </PrivateAuth>
 
         }></Route>
 
-       
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <Footer></Footer>
