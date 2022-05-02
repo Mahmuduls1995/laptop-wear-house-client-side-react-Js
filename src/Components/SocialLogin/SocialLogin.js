@@ -1,0 +1,48 @@
+import React from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import {useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../Firebase/firebase.init';
+import Loading from '../Loading/Loading'
+const SocialLogin = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate();
+    let errorElement;
+
+    if (loading ) {
+        <Loading></Loading>
+
+    }
+    if (error) {
+        errorElement = <div>
+            <p className="text-danger">Error: {error?.message}</p>
+        </div>
+    }
+
+
+    if (user || error) {
+        navigate('/home')
+    }
+    return (
+        <div>
+            <div className="flex ml-20 items-center">
+                <div style={{ height: '1px' }} className="bg-primary w-40"></div>
+                <p className=" ">or</p>
+                <div style={{ height: '1px' }} className="bg-primary w-40"></div>
+            </div>
+            {errorElement}
+
+            <div className="mt-2 mb-4" >
+                <button
+                    onClick={() => signInWithGoogle()}
+                    className=" bg-info d-flex justify-content-center align-items-center w-80 d-block rounded-md  mx-auto">
+                    <FcGoogle className="" size="40px" />
+                    <p className=" mx-4 mt-2 fs-3 font-semibold " >Google Sign In</p>
+                </button>
+            </div>
+
+        </div>
+    );
+};
+
+export default SocialLogin;
