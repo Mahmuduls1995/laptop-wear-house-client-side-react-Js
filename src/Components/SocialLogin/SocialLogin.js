@@ -1,9 +1,10 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import {useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import auth from '../Firebase/firebase.init';
 import Loading from '../Loading/Loading'
+
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
@@ -11,7 +12,6 @@ const SocialLogin = () => {
 
     if (loading ) {
         <Loading></Loading>
-
     }
     if (error) {
         errorElement = <div>
@@ -24,6 +24,8 @@ const SocialLogin = () => {
         navigate('/home')
     }
     return (
+
+       
         <div>
             <div className="flex ml-20 items-center">
                 <div style={{ height: '1px' }} className="bg-primary w-40"></div>
