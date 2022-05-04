@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-// import { signOut } from 'firebase/auth';
 import auth from '../../firebase.init'
-// import logo from '../../Components/images/image (3).png'
 import logo from '../../Components/images/laptopWearhouse (1).png'
 import { signOut } from 'firebase/auth';
 
