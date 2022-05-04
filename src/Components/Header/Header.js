@@ -31,7 +31,7 @@ const Header = () => {
                         <Nav className="m-auto">
                             <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300  rounded" as={Link} to="/home">Home</Nav.Link>
 
-                            <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" href="home#inventories">Inventories</Nav.Link>
+                            {/* <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" href="home#products">Products</Nav.Link> */}
 
                             <Nav>
 
@@ -46,7 +46,7 @@ const Header = () => {
 
                                         </div>
                                         :
-                                        <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" href="home#inventories">Inventories</Nav.Link>
+                                        <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" href="home#products">Products</Nav.Link>
 
                                 }
                             </Nav>

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import auth from '../../firebase.init';
 const UploadPd = () => {
     const { register, handleSubmit } = useForm();
-
+    const [user] = useAuthState(auth);
     const onSubmit = (data,event) => {
-        console.log(data);
+        console.log(user);
         event.preventDefault();
         const url = 'http://localhost:5000/uploadPd';
 
@@ -14,9 +16,9 @@ const UploadPd = () => {
                data
             }),
             headers: {
+                
+                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 'Content-type': 'application/json; charset=UTF-8',
-                // 'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
-                // 'Content-type': 'application/json; charset=UTF-8',
             },
         })
             .then((response) => response.json())
@@ -28,7 +30,7 @@ const UploadPd = () => {
     }
     return (
         <div className='container'>
-            <h2 className='text-center my-5 font-bold'>Upload Product</h2>
+            <h2 className='text-center my-5 font-bold underline'>Upload Product</h2>
 
             <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
                 <input placeholder="Product Name" className="border text-center py-2 px-2" {...register("product name")} />
@@ -37,23 +39,10 @@ const UploadPd = () => {
                 <input placeholder="Price" className=" px-2 border text-center py-2 mb-2" type="number" {...register("price")} />
                 <input placeholder="Quantity" className=" px-2 text-center border py-2 mb-2" type="number" {...register("quantity")} />
                 <input placeholder="Supplier Name" className="border text-center py-2 my-3 px-2" {...register("supplier name")} />
-                <input className="border py-1" type="submit" value="Upload Product " />
+                <input className="border py-1 text-white  bg-primary ease-in duration-300 " type="submit" value="Upload Product " />
             </form>
 
-            {/* <div className='w-50 mx-auto'>
-                <form onSubmit={handleUpload}>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Product Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Price</label>
-                        <input type="text" name="price" class="form-control" id="exampleInputPassword1" />
-                    </div>
-                    <button type="submit" class="btn btn-primary">Upload</button>
-                </form>
-            </div> */}
+          
         </div>
     );
 };

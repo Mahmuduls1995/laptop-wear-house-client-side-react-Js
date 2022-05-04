@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,11 +8,12 @@ import Loading from '../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
+    const [user2] = useAuthState(auth);
     const emailRef = useRef(' ');
     const passwordRef = useRef(' ');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+   
     const [
         signInWithEmailAndPassword,
         user,
@@ -34,11 +35,29 @@ const Login = () => {
     const handlePasswordBlur = (event) => {
         setPassword(event.target.value);
     }
+   
+    if (user2) {
+        console.log(user2);
+        const url = 'http://localhost:5000/login';
 
-    if (user) {
-        navigate(from, { replace: true });
-
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: user2.email
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) =>{
+                localStorage.setItem("accessToken", data.token);
+                navigate(from, { replace: true });
+            });
     }
+   
+
+  
 
     const handleSignIn = (event) => {
         event.preventDefault();
@@ -57,7 +76,7 @@ const Login = () => {
         }
     }
     return (
-       
+
         <div className="w-1/3 mx-auto mt-1 border-1 shadow-md bg-gray-300  rounded-md">
             <h2 className="text-center text-2xl font-bold p-4">Login</h2>
             <form onSubmit={handleSignIn} className="ml-28">
@@ -78,7 +97,7 @@ const Login = () => {
 
             </form>
 
-            <p className="text-center mt-2">New Student ? <Link className="underline text-blue-800" to="/signup">Create an account</Link></p>
+            <p className="text-center mt-2">New Customer ? <Link className="underline text-blue-800" to="/signup">Create an account</Link></p>
 
             <p className="text-center mt-2">Forget Password ? <button className="text-primary btn btn-link" onClick={reseatPassword}>Reseat password</button></p>
 

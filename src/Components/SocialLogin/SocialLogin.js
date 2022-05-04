@@ -1,7 +1,7 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import auth from '../../firebase.init';
-import { useSignInWithGoogle} from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading'
 
@@ -18,9 +18,10 @@ const SocialLogin = () => {
             <p className="text-danger">Error: {error?.message}</p>
         </div>
     }
-
-
+   
+   
     if (user || error) {
+       
         navigate('/home')
     }
     return (
