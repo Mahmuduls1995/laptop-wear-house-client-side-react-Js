@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -11,11 +10,11 @@ const Products = () => {
     }, []);
     return (
         <div>
-            <h2>All products Is:{products.length}</h2>
+            <h2 className="text-center my-3 text-green-700">All products Is Here</h2>
             <div className="row">
-                <ToastContainer />
+               
                 {   
-                    products.slice(0,6).map(pd => (<div className='col-4 g-4  mx-auto ' key={pd._id}>
+                    products.slice(0,6).map(pd => (<div className='col-4 col-sm-12 col-md-4 g-4  mx-auto ' key={pd._id}>
 
                         
                         <div className="card">
