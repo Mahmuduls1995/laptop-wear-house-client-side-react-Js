@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const UpdateProduct = () => {
     const { id } = useParams();
-    // const [deliver, setDeliver] = useState(0);
     const [products, setProducts] = useState({});
+    const [reload, setIsReload] =useState(true)
 
     useEffect(() => {
         const url = `http://localhost:5000/products/${id}`;
@@ -14,13 +15,12 @@ const UpdateProduct = () => {
             .then(data => setProducts(data))
 
 
-    }, [])
+    }, [reload])
 
     const handleDeliver = () => {
         const stockQuantity = parseInt(products?.quantity)
         const newStockQuantity = stockQuantity - 1;
         console.log(newStockQuantity);
-        // const productQuantity = {newStockQuantity}
 
         const url = `http://localhost:5000/products/${id}`;
         fetch(url, {
@@ -38,10 +38,15 @@ const UpdateProduct = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                alert('Your Product Deliver successfully')
-
+                toast('Your Product Deliver successfully')
+                setIsReload(!reload)
             })
+
+    
+
+
     }
+
 
 
     const handleUpdateQuantity = (event) => {
@@ -72,20 +77,14 @@ const UpdateProduct = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                alert('Stock Quantity Add successfully')
+                toast('Stock Quantity Add successfully')
                 event.target.reset()
+                setIsReload(!reload)
             })
 
+
+
     }
-
-
-    // const handleDeliver = () => {
-
-    //     const quantity =parseInt(products.quantity);
-    //     const quantityAdd =quantity-1;
-    //     console.log(quantityAdd);
-    //     return quantityAdd ;
-    // }
 
     return (
         <div>
@@ -93,7 +92,7 @@ const UpdateProduct = () => {
             <h2 className="text-center"> Product Name:{products?.product_name}</h2>
 
 
-
+            <ToastContainer></ToastContainer>
 
             <div className='col-4 col-sm-12 col-md-4 g-4  mx-auto '>
 
@@ -108,17 +107,12 @@ const UpdateProduct = () => {
 
                         <li className="list-group-item"><strong>Quantity</strong>: {products?.quantity}</li>
 
-                        {/* <li className="list-group-item"><strong>Quantity</strong>: </li>
-                        <input type="text" name="quantity"  value={products?.data?.quantity}/> */}
-
+                      
 
                         <li className="list-group-item"><strong>Supplier Name</strong>: {products?.supplier_name}</li>
                     </ul>
                     <div className="card-body ">
                         <button className='btn btn-primary px-xl-5 ' onClick={handleDeliver} >Delivered</button>
-                        {/* <button className='btn btn-primary px-xl-5 ' onClick={()=>setDeliver(deliver-1)} >Delivered</button> */}
-
-
                     </div>
 
                     <div>
@@ -133,11 +127,6 @@ const UpdateProduct = () => {
                         </form>
 
                     </div>
-                    
-                         {/* 
-                    <div className="text-center">
-                        <Link as={Link} to="/AllPd" ><button className='btn btn-primary px-xl-5 '>All Products</button> </Link>
-                    </div> */}
 
                 </div>
             </div>

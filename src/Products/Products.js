@@ -20,7 +20,7 @@ const Products = () => {
                             <img src={pd.img} className="card-img-top" alt="..." />
                             <div className="card-body">
                                 <h5 className="card-title"><strong>Product Name</strong>: {pd.product_name}</h5>
-                                <p className="card-text"><strong>Description</strong>:  {pd.description}</p>
+                                <p className="card-text"><strong>Description</strong>:  {pd.description.slice(0,90)}</p>
                             </div>
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item"><strong>Price</strong>: {pd.price}</li>
@@ -37,6 +37,10 @@ const Products = () => {
 
                     </div>))
                 }
+            </div>
+
+            <div className="text-center mt-4">
+            <Link as={Link} to="/products" ><button className='btn btn-primary px-xl-5 '>Manage All Products</button> </Link>
             </div>
         </div>
     );

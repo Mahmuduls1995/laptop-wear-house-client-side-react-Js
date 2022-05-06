@@ -13,6 +13,7 @@ import SignUp from './Components/SignUp/SignUp';
 import NotFound from './Components/NotFound/NotFound';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
 import Products from './Products/Products';
+import ContactPart from './Components/ContactPart/ContactPart';
 function App() {
   return (
     <div className="App">
@@ -53,7 +54,7 @@ function App() {
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-
+        <ContactPart></ContactPart>
       <Footer></Footer>
 
     </div>

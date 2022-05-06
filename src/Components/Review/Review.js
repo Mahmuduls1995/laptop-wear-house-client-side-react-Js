@@ -9,14 +9,15 @@ const Review = () => {
     }, []);
     return (
 
-        <div>
-            <h2 className="text-center my-3  text-primary">Customer Review Here</h2>
-            <div className="row">
+        <section className="bg-gray-300 py-5 mt-3  rounded-md">
+            <div>
+                <h2 className="text-center my-1  text-primary">Customer Review Here</h2>
+                <div className="row">
 
-                {
-                    reviews.slice(0, 6).map(review => (<div className='col-4 col-sm-12 col-md-4 g-4  mx-auto ' key={review._id}>
+                    {
+                        reviews.slice(0, 3).map(review => (<div className='col-4 col-sm-12 col-md-4 g-4  mx-auto ' key={review._id}>
 
-                      
+
                             <Card className="border-0 shadow-lg  ">
                                 <Card.Img className="w-50 mx-auto rounded-full" variant="top" src={review.img} />
                                 <Card.Body>
@@ -25,14 +26,15 @@ const Review = () => {
                                     <Card.Text>Review: {review.review.slice(0, 90)} ...</Card.Text>
                                 </Card.Body>
                             </Card>
-                      
 
-                    
 
-                    </div>))
-                }
+
+
+                        </div>))
+                    }
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 
