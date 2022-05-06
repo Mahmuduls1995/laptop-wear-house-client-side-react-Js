@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Products = () => {
@@ -12,33 +13,28 @@ const Products = () => {
         <div>
             <h2 className="text-center my-3 text-green-700">All products Is Here</h2>
             <div className="row">
-               
-                {   
-                    products.slice(0,6).map(pd => (<div className='col-4 col-sm-12 col-md-4 g-4  mx-auto ' key={pd._id}>
 
-                        
+                {
+                    products.slice(0, 6).map(pd => (<div className='col-4 col-sm-12 col-md-4 g-4  mx-auto ' key={pd._id}>
                         <div className="card">
-                            <img src={pd.data.img} className="card-img-top" alt="..." />
+                            <img src={pd.img} className="card-img-top" alt="..." />
                             <div className="card-body">
-                                <h5 className="card-title"><strong>Product Name</strong>: {pd.data.product_name}</h5>
-                                <p className="card-text"><strong>Description</strong>:  {pd.data.description}</p>
+                                <h5 className="card-title"><strong>Product Name</strong>: {pd.product_name}</h5>
+                                <p className="card-text"><strong>Description</strong>:  {pd.description}</p>
                             </div>
                             <ul className="list-group list-group-flush">
-                                <li className="list-group-item"><strong>Price</strong>: {pd.data.price}</li>
-                                <li className="list-group-item"><strong>Quantity</strong>: {pd.data.quantity}</li>
-                                <li className="list-group-item"><strong>Supplier Name</strong>: {pd.data.supplier_name}</li>
+                                <li className="list-group-item"><strong>Price</strong>: {pd.price}</li>
+                                <li className="list-group-item"><strong>Quantity</strong>: {pd.quantity}</li>
+                                <li className="list-group-item"><strong>Supplier Name</strong>: {pd.supplier_name}</li>
                             </ul>
                             <div className="card-body ">
 
-                            <button className='btn btn-primary px-xl-5 '>Update</button>                                
-                                                           
-
-                                {/* <Link href="#" className="card-link">Card link</Link>
-                                <Link href="#" className="card-link">Another link</Link> */}
+                                <Link to={`/update/${pd._id}`}><button className='btn btn-primary px-xl-5 '>Update</button> </Link>
+                               
                             </div>
                         </div>
 
-                      
+
                     </div>))
                 }
             </div>

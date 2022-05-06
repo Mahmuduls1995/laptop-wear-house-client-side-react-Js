@@ -46,7 +46,7 @@ const Header = () => {
 
                                         </div>
                                         :
-                                        <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" href="home#products">Products</Nav.Link>
+                                        <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2"as={Link} to="/products" >Products</Nav.Link>
 
                                 }
                             </Nav>

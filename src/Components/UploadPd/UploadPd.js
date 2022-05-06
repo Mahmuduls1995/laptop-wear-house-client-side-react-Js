@@ -6,18 +6,15 @@ const UploadPd = () => {
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
     const onSubmit = (data, event) => {
-        console.log(user);
+        
         event.preventDefault();
         const url = 'http://localhost:5000/uploadPd';
 
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify({
-                data
-            }),
+            body: JSON.stringify(data),
             headers: {
 
-                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })

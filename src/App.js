@@ -11,6 +11,8 @@ import TotalOrders from './Components/TotalOrders/TotalOrders';
 import PrivateAuth from './Components/PrivateAuth/PrivateAuth';
 import SignUp from './Components/SignUp/SignUp';
 import NotFound from './Components/NotFound/NotFound';
+import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
+import Products from './Products/Products';
 function App() {
   return (
     <div className="App">
@@ -22,7 +24,14 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/products"  element={<Products></Products>}></Route>
 
+        <Route path="/update/:id" element={
+          <PrivateAuth>
+            <UpdateProduct></UpdateProduct>
+          </PrivateAuth>
+
+        }></Route>
         <Route path="/uploadPd" element={
           <PrivateAuth>
             <UploadPd></UploadPd>
