@@ -14,6 +14,8 @@ import NotFound from './Components/NotFound/NotFound';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
 import Products from './Products/Products';
 import ContactPart from './Components/ContactPart/ContactPart';
+import CallOfActionUpdate from './Components/CallOfAction/CallOfActionUpdate';
+import Footer2 from './Components/Footer2/Footer2';
 function App() {
   return (
     <div className="App">
@@ -55,7 +57,9 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
         <ContactPart></ContactPart>
-      <Footer></Footer>
+        <CallOfActionUpdate></CallOfActionUpdate>
+        <Footer2></Footer2>
+      {/* <Footer></Footer> */}
 
     </div>
   );

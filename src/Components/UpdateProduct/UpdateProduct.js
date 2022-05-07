@@ -123,7 +123,7 @@ const UpdateProduct = () => {
 
                             <input type="submit" className='btn btn-primary px-xl-5 ml-4 ' value="Add Stock" />
 
-                            <Link className=" ml-10"as={Link} to="/AllPd" ><button className='btn btn-primary px-xl-5 '>All Products</button> </Link>
+                            <Link className="ml-10"as={Link} to="/AllPd" ><button className='btn btn-primary px-xl-5 '>All Products</button> </Link>
                         </form>
 
                     </div>

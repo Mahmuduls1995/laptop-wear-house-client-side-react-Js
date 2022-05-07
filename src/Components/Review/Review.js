@@ -15,11 +15,14 @@ const Review = () => {
                 <div className="row">
 
                     {
-                        reviews.slice(0, 3).map(review => (<div className='col-4 col-sm-12 col-md-4 g-4  mx-auto ' key={review._id}>
+                        reviews.slice(0, 3).map(review => (<div className='col-4 col-sm-12 col-md-4  mx-auto' key={review._id}>
 
 
                             <Card className="border-0 shadow-lg  ">
+                                <div className="transform cursor-pointer hover transition duration-500 hover:scale-125">
+
                                 <Card.Img className="w-50 mx-auto rounded-full" variant="top" src={review.img} />
+                                </div>
                                 <Card.Body>
                                     <Card.Title>Name: {review.name}</Card.Title>
                                     <Card.Text>Rating : {review.ratings}</Card.Text>
