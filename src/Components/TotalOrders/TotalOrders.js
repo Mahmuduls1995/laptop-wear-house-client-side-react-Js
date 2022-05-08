@@ -2,7 +2,7 @@ import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const TotalOrders = () => {
@@ -12,14 +12,13 @@ const TotalOrders = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/order?email=${email}`;
-            try{
-
-                const { data } = await axios.get(url,{
+            const url = `https://morning-waters-97427.herokuapp.com/order?email=${email}`;
+            try {
+                const { data } = await axios.get(url, {
                     headers: {
-                        'authorization':`${user.email} ${localStorage.getItem("accessToken")}`,
+                        'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
                         'Content-type': 'application/json; charset=UTF-8',
-                      },
+                    },
                 });
                 setOrders(data);
             }
@@ -37,14 +36,13 @@ const TotalOrders = () => {
     return (
         <div className="bg-gray-300">
             <h2 className="text-center my-3">Total Orders</h2>
+            <div className="row">
 
-            {
-                orders.map(order =>
-                    <div key={order._id} className="my-3">
+                {
+                    orders.map(order =>
+                        <div key={order._id} className="col-4 col-sm-12 col-md-4   mx-auto my-3">
 
-                        <div className='col-4 col-sm-12 col-md-4  mx-auto '>
-
-                            <div className="card ">
+                            <div className="card">
                                 <div className="w-80  mx-auto h-fit transform cursor-pointer hover transition duration-500 hover:scale-125">
                                     <img src={order.img} className="card-img-top " alt="..." />
                                 </div>
@@ -57,20 +55,19 @@ const TotalOrders = () => {
 
                                     <li className="list-group-item"><strong>Quantity</strong>: {order?.quantity}</li>
 
-
-
                                     <li className="list-group-item"><strong>Supplier Name</strong>: {order?.supplier_name}</li>
                                 </ul>
                                 <div className="card-body ">
                                     <button className='btn btn-primary px-xl-5 ' >CheckOut</button>
                                 </div>
                             </div>
-                        </div>
 
 
 
-                    </div>)
-            }
+
+                        </div>)
+                }
+            </div>
         </div>
 
 

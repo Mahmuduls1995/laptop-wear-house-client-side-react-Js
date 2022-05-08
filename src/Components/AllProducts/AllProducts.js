@@ -4,7 +4,7 @@ const AllProducts = () => {
 
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://morning-waters-97427.herokuapp.com/products')
             .then((response) => response.json())
             .then((data) => setProducts(data));
     }, []);
@@ -14,15 +14,15 @@ const AllProducts = () => {
         if (proceed) {
 
             console.log('deleting  user id', id);
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://morning-waters-97427.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.deletedCount>0) {
+                    if (data.deletedCount > 0) {
                         console.log('deleted');
-                        const remaining=products.filter(product => product._id !==id);
+                        const remaining = products.filter(product => product._id !== id);
                         setProducts(remaining)
 
                     }
@@ -52,10 +52,10 @@ const AllProducts = () => {
                             Price
                         </th>
                         <th scope="col" className="px-6 py-3">
-                           Supplier Name
+                            Supplier Name
                         </th>
                         <th scope="col" className="px-6 py-3">
-                           Description
+                            Description
                         </th>
                         <th scope="col" className="px-6 py-3">
                             <span className="sr-only">Edit</span>
@@ -74,19 +74,19 @@ const AllProducts = () => {
                                     <img className="w-20" src={product.img} alt="" />
                                 </td>
                                 <td className="px-6 py-4">
-                                {product.quantity}
+                                    {product.quantity}
                                 </td>
                                 <td className="px-6 py-4">
-                                   {product.price}
+                                    {product.price}
                                 </td>
                                 <td className="px-6 py-4">
-                                   {product.supplier_name}
+                                    {product.supplier_name}
                                 </td>
                                 <td className="px-6 py-4">
-                                   {product.description.slice(0,30)}
+                                    {product.description.slice(0, 30)}
                                 </td>
                                 <td className="px-6 py-4 text-right">
-                                    <button onClick={()=>handleUserDelete(product._id)} className="btn btn-primary">Delete</button>
+                                    <button onClick={() => handleUserDelete(product._id)} className="btn btn-primary">Delete</button>
                                 </td>
                             </tr>)
                         })

@@ -19,9 +19,9 @@ const Header = () => {
     return (
 
 
-        <div>
+        <>
 
-            <Navbar collapseOnSelect className=" bg-emerald-400  " sticky="top" expand="lg">
+            <Navbar collapseOnSelect className=" bg-emerald-400" sticky="top" expand="lg">
                 <Container>
                     <Navbar.Brand as={Link} to="/">
                         <img style={{ height: '50px', width: '100px' }} src={logo} alt="" />
@@ -80,7 +80,7 @@ const Header = () => {
             </Navbar>
 
 
-        </div>
+        </>
     );
 };
 

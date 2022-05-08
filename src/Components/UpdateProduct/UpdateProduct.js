@@ -5,10 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const UpdateProduct = () => {
     const { id } = useParams();
     const [products, setProducts] = useState({});
-    const [reload, setIsReload] =useState(true)
+    const [reload, setIsReload] = useState(true)
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://morning-waters-97427.herokuapp.com/products/${id}`;
 
         fetch(url)
             .then((response) => response.json())
@@ -20,29 +20,39 @@ const UpdateProduct = () => {
     const handleDeliver = () => {
         const stockQuantity = parseInt(products?.quantity)
         const newStockQuantity = stockQuantity - 1;
-        console.log(newStockQuantity);
+        // console.log(newStockQuantity);
 
-        const url = `http://localhost:5000/products/${id}`;
-        fetch(url, {
-            method: 'PUT', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(
-                {
-                    quantity: newStockQuantity,
-                }
-            ),
-        })
 
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                toast('Your Product Deliver successfully')
-                setIsReload(!reload)
+        if (  newStockQuantity == 0) {
+            alert("sold out")
+        }
+
+        else{
+
+            const url = `https://morning-waters-97427.herokuapp.com/products/${id}`;
+            fetch(url, {
+                method: 'PUT', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(
+                    {
+                        quantity: newStockQuantity,
+                    }
+                ),
             })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    toast('Your Product Deliver successfully')
+                    setIsReload(!reload)
+                })
 
-    
+
+
+        }
+
+
 
 
     }
@@ -58,7 +68,7 @@ const UpdateProduct = () => {
         console.log(newQuantity);
 
         //send data to server
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://morning-waters-97427.herokuapp.com/products/${id}`;
         fetch(url, {
             method: 'PUT', // or 'PUT'
             headers: {
@@ -107,7 +117,7 @@ const UpdateProduct = () => {
 
                         <li className="list-group-item"><strong>Quantity</strong>: {products?.quantity}</li>
 
-                      
+
 
                         <li className="list-group-item"><strong>Supplier Name</strong>: {products?.supplier_name}</li>
                     </ul>
@@ -123,7 +133,7 @@ const UpdateProduct = () => {
 
                             <input type="submit" className='btn btn-primary px-xl-5 ml-4 ' value="Add Stock" />
 
-                            <Link className="ml-10"as={Link} to="/AllPd" ><button className='btn btn-primary px-xl-5 '>All Products</button> </Link>
+                            <Link className="ml-10" as={Link} to="/AllPd" ><button className='btn btn-primary px-xl-5 '>All Products</button> </Link>
                         </form>
 
                     </div>

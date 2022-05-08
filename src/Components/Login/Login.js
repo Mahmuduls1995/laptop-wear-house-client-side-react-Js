@@ -13,7 +13,7 @@ const Login = () => {
     const passwordRef = useRef(' ');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-   
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -35,10 +35,10 @@ const Login = () => {
     const handlePasswordBlur = (event) => {
         setPassword(event.target.value);
     }
-   
+
     if (user2) {
         console.log(user2);
-        const url = 'http://localhost:5000/login';
+        const url = 'https://morning-waters-97427.herokuapp.com/login';
 
         fetch(url, {
             method: 'POST',
@@ -50,14 +50,14 @@ const Login = () => {
             },
         })
             .then((response) => response.json())
-            .then((data) =>{
+            .then((data) => {
                 localStorage.setItem("accessToken", data.token);
                 navigate(from, { replace: true });
             });
     }
-   
 
-  
+
+
 
     const handleSignIn = (event) => {
         event.preventDefault();

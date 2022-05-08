@@ -3,7 +3,7 @@ import { Card, Col } from 'react-bootstrap';
 const Review = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://morning-waters-97427.herokuapp.com/reviews')
             .then((response) => response.json())
             .then((data) => setReviews(data));
     }, []);
@@ -21,7 +21,7 @@ const Review = () => {
                             <Card className="border-0 shadow-lg  ">
                                 <div className="transform cursor-pointer hover transition duration-500 hover:scale-125">
 
-                                <Card.Img className="w-50 mx-auto rounded-full" variant="top" src={review.img} />
+                                    <Card.Img className="w-50 mx-auto rounded-full" variant="top" src={review.img} />
                                 </div>
                                 <Card.Body>
                                     <Card.Title>Name: {review.name}</Card.Title>
