@@ -31,13 +31,13 @@ const Header = () => {
                         <Nav className="m-auto">
                             <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300  rounded" as={Link} to="/home">Home</Nav.Link>
 
-                            {/* <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" href="home#products">Products</Nav.Link> */}
-
+                            
                             <Nav>
 
                                 {
                                     user ?
                                         <div className="d-flex">
+                                            <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" as={Link} to="/products">Products</Nav.Link>
                                             <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" as={Link} to="/AllPd">All Products</Nav.Link>
 
                                             <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" as={Link} to="/uploadPd">Upload Products</Nav.Link>

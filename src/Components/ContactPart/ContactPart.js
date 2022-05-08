@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ContactPart = () => {
+    
     return (
 
         <section className='py-10 my-5 bg-purple-300 '>

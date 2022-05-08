@@ -77,9 +77,9 @@ const Login = () => {
     }
     return (
 
-        <div className="w-1/3 mx-auto mt-1 border-1 shadow-md bg-gray-300  rounded-md">
+        <div className="lg:w-1/2 sm:w-full md:w-1/2  mx-auto mt-1 border-1 shadow-md bg-gray-300  rounded-md">
             <h2 className="text-center text-2xl font-bold p-4">Login</h2>
-            <form onSubmit={handleSignIn} className="ml-28">
+            <form onSubmit={handleSignIn} className="mx-auto lg:w-1/3  sm:w-1/3 sm:ml-8  md:w-1/2">
                 <div>
                     <h4 htmlFor="email">Email: </h4>
                     <input onBlur={handleEmailBlur} ref={emailRef} type="email" className="placeholder-shown:border-gray-500 border-2 text-center px-2 w-80 h-12 rounded-2" placeholder="Email" required />
@@ -97,9 +97,9 @@ const Login = () => {
 
             </form>
 
-            <p className="text-center mt-2">New Customer ? <Link className="underline text-blue-800" to="/signup">Create an account</Link></p>
+            <p className="text-center mt-2 ml-2">New Customer ? <Link className="underline text-blue-800" to="/signup">Create an account</Link></p>
 
-            <p className="text-center mt-2">Forget Password ? <button className="text-primary btn btn-link" onClick={reseatPassword}>Reseat password</button></p>
+            <p className="text-center mt-2 ml-2">Forget Password ? <button className="text-primary btn btn-link" onClick={reseatPassword}>Reseat password</button></p>
 
             <SocialLogin></SocialLogin>
             <ToastContainer />

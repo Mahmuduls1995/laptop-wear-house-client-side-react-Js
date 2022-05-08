@@ -47,14 +47,7 @@ const UpdateProduct = () => {
                     toast('Your Product Deliver successfully')
                     setIsReload(!reload)
                 })
-
-
-
         }
-
-
-
-
     }
 
 
@@ -92,8 +85,6 @@ const UpdateProduct = () => {
                 setIsReload(!reload)
             })
 
-
-
     }
 
     return (
@@ -104,7 +95,7 @@ const UpdateProduct = () => {
 
             <ToastContainer></ToastContainer>
 
-            <div className='col-4 col-sm-12 col-md-4 g-4  mx-auto '>
+            <div className='col-12 col-sm-12 col-lg-4 col-md-6 g-4  mx-auto '>
 
                 <div className="card">
                     <img src={products?.img} className="card-img-top" alt="..." />

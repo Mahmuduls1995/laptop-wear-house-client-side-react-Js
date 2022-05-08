@@ -45,9 +45,9 @@ const SignUp = () => {
 
     }
     return (
-        <div className="w-1/3 mx-auto border-2 shadow-md rounded-md bg-gray-300">
+        <div className="lg:w-1/2 sm:w-full md:w-1/2 mx-auto border-2 shadow-md rounded-md bg-gray-300">
         <h1 className="text-center text-2xl font-bold p-4">SignUp</h1>
-        <form onSubmit={handleCreateUser} className="ml-28">
+        <form onSubmit={handleCreateUser} className="mx-auto lg:w-1/3 sm:w-1/4  md:w-1/2">
             <div>
                 <h4 htmlFor="email">Email: </h4>
                 <input onBlur={handleEmailBlur} type="email" className="placeholder-shown:border-gray-500 border-2 text-center px-2 w-80 h-12 rounded-2" placeholder="Email" required />

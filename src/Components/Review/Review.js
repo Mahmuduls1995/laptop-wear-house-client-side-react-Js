@@ -15,7 +15,9 @@ const Review = () => {
                 <div className="row">
 
                     {
-                        reviews.slice(0, 3).map(review => (<div className='col-4 col-sm-12 col-md-4  mx-auto' key={review._id}>
+                        reviews.slice(0, 3).map(review => (
+                        
+                        <div className='col-12 col-sm-12 mt-2 col-md-6 col-xl-4 col-lg-4  mx-auto' key={review._id}>
 
 
                             <Card className="border-0 shadow-lg  ">

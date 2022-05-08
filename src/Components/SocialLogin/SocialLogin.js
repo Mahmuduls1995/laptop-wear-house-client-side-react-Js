@@ -27,15 +27,11 @@ const SocialLogin = () => {
     return (
 
        
-        <div>
-            <div className="flex ml-20 items-center">
-                <div style={{ height: '1px' }} className="bg-primary w-40"></div>
-                <p className=" ">or</p>
-                <div style={{ height: '1px' }} className="bg-primary w-40"></div>
-            </div>
+        <div className="">
+
             {errorElement}
 
-            <div className="mt-2 mb-4" >
+            <div className="mt-2 sm:w-full ml-6 mb-4" >
                 <button
                     onClick={() => signInWithGoogle()}
                     className=" bg-info d-flex justify-content-center align-items-center w-80 d-block rounded-md  mx-auto">

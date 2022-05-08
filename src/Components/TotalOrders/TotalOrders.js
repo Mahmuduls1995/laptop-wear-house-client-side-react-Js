@@ -40,7 +40,7 @@ const TotalOrders = () => {
 
                 {
                     orders.map(order =>
-                        <div key={order._id} className="col-4 col-sm-12 col-md-4   mx-auto my-3">
+                        <div key={order._id} className="col-12 col-sm-12 col-md-6 col-lg-4  mx-auto my-3">
 
                             <div className="card">
                                 <div className="w-80  mx-auto h-fit transform cursor-pointer hover transition duration-500 hover:scale-125">

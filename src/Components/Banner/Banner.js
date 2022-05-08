@@ -46,13 +46,6 @@ const Banner = () => {
                         src={banner3}
                         alt="Third slide"
                     />
-
-                    <Carousel.Caption>
-                        {/* <h3>Mathematics</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p> */}
-                    </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
         </div>
