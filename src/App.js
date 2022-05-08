@@ -28,7 +28,6 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-      
         <Route path="/products" element={<Products></Products>}></Route>
 
         <Route path="/update/:id" element={
@@ -58,12 +57,9 @@ function App() {
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-      {/* <Review></Review> */}
       <ContactPart></ContactPart>
       <CallOfActionUpdate></CallOfActionUpdate>
       <Footer2></Footer2>
-      
-
     </div>
   );
 }

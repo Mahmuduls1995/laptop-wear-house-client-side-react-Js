@@ -2,9 +2,8 @@ import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-
 const TotalOrders = () => {
     const [user] = useAuthState(auth);
     const [orders, setOrders] = useState([])
@@ -34,12 +33,15 @@ const TotalOrders = () => {
 
     }, [user])
     return (
+
         <div className="bg-gray-300">
             <h2 className="text-center my-3">Total Orders</h2>
             <div className="row">
-
                 {
+
                     orders.map(order =>
+
+
                         <div key={order._id} className="col-12 col-sm-12 col-md-6 col-lg-4  mx-auto my-3">
 
                             <div className="card">
@@ -62,10 +64,9 @@ const TotalOrders = () => {
                                 </div>
                             </div>
 
+                        </div>
 
-
-
-                        </div>)
+                    )
                 }
             </div>
         </div>

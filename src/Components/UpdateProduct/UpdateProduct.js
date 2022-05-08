@@ -50,8 +50,6 @@ const UpdateProduct = () => {
         }
     }
 
-
-
     const handleUpdateQuantity = (event) => {
         event.preventDefault();
         const previousQuantity = parseInt(products?.quantity)

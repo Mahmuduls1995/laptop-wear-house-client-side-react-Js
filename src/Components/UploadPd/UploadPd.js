@@ -30,7 +30,6 @@ const UploadPd = () => {
                 const data = response;
                 if (data.insertedId) {
                     toast('Your upLoad is successfully')
-                    // event.target.reset()
                 }
                 console.log(response);
             })
@@ -43,7 +42,7 @@ const UploadPd = () => {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                // 'authorization':`${user.email} ${localStorage.getItem("accessToken")}`,
+              
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })

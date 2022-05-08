@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
-import logo from '../../Components/images/laptopWearhouse (1).png'
+import logo from '../../Components/images/logo.png'
 import { signOut } from 'firebase/auth';
 
 
@@ -50,14 +50,7 @@ const Header = () => {
 
                                 }
                             </Nav>
-
-                           
-
-
-                           
-
                             <Nav.Link className="text-white hover:bg-purple-700 ease-in duration-300 rounded mx-2" as={Link} to="/blogs">Blogs</Nav.Link>
-
 
                         </Nav>
                         <Nav>
