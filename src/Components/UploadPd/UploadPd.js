@@ -5,14 +5,17 @@ import { useForm } from 'react-hook-form';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+
+
+
 const UploadPd = () => {
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
-
-
+    
 
     const onSubmit = (data, event) => {
         event.preventDefault();
+
 
         const order = {
             email: user.email,
@@ -25,6 +28,8 @@ const UploadPd = () => {
 
         }
 
+        
+
         axios.post('https://morning-waters-97427.herokuapp.com/order', order)
             .then(response => {
                 const data = response;
@@ -33,6 +38,10 @@ const UploadPd = () => {
                 }
                 console.log(response);
             })
+
+
+
+
 
 
 
@@ -54,6 +63,7 @@ const UploadPd = () => {
             });
 
     }
+
     return (
         <div className='container bg-gray-400'>
             <h2 className='text-center my-5 font-bold underline p-3'>Upload Product</h2>

@@ -22,6 +22,7 @@ const UpdateProduct = () => {
         const newStockQuantity = stockQuantity - 1;
         // console.log(newStockQuantity);
 
+        
 
         if (  newStockQuantity == 0) {
             alert("sold out")

@@ -32,16 +32,15 @@ const TotalOrders = () => {
         getOrders();
 
     }, [user])
+
+    
     return (
 
         <div className="bg-gray-300">
             <h2 className="text-center my-3">Total Orders</h2>
             <div className="row">
                 {
-
                     orders.map(order =>
-
-
                         <div key={order._id} className="col-12 col-sm-12 col-md-6 col-lg-4  mx-auto my-3">
 
                             <div className="card">
@@ -63,9 +62,7 @@ const TotalOrders = () => {
                                     <button className='btn btn-primary px-xl-5 ' >CheckOut</button>
                                 </div>
                             </div>
-
                         </div>
-
                     )
                 }
             </div>

@@ -32,9 +32,6 @@ const Review = () => {
                                 </Card.Body>
                             </Card>
 
-
-
-
                         </div>))
                     }
                 </div>

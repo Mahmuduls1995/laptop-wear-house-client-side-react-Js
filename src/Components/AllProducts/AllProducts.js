@@ -8,6 +8,8 @@ const AllProducts = () => {
             .then((response) => response.json())
             .then((data) => setProducts(data));
     }, []);
+    
+
 
     const handleUserDelete = (id) => {
         const proceed = window.confirm('Are you sure you want to delete');
@@ -27,6 +29,7 @@ const AllProducts = () => {
 
                     }
                 });
+        
 
         }
     }

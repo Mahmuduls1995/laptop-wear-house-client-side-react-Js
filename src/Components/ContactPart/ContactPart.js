@@ -20,6 +20,7 @@ const ContactPart = () => {
             body: JSON.stringify(user),
         })
 
+        
             .then(response => response.json())
             .then(data => {
 
